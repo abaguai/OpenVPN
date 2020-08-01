@@ -764,7 +764,7 @@ mkdir /APP
 
 cd /APP
 
-wget -q ${Download_host}fas.apk&&wget -q ${Download_host}apktool.jar&&java -jar apktool.jar d fas.apk&&rm -rf fas.apk
+wget -q ${Download_host}fas.apk&&wget -q ${apktool}apktool.jar&&java -jar apktool.jar d fas.apk&&rm -rf fas.apk
 
 sed -i 's/demo.dingd.cn:80/'${llwsIP}:${lyApacheport}'/g' `grep demo.dingd.cn:80 -rl /APP/fas/smali/net/openvpn/openvpn/`
 
@@ -1464,6 +1464,7 @@ rm -rf ssvpn
 	Download1=https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/shumei/ #`curl -s https://raw.githubusercontent.com/Andyanna/openvpn/master/ovpnip.txt`;
 	IP=`curl -s http://members.3322.org/dyndns/getip`;
 	Download_host=https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/shumei/ #`curl -s https://raw.githubusercontent.com/Andyanna/openvpn/master/installip.txt`;
+	apktool=https://files.010521.xyz/OpenVPN/apktool/
 	
 	
 	
