@@ -81,6 +81,7 @@ ipmd=57d006ac6451149e451b8ffa9c84c1af;
 rds=dce8026f16bded7b44f169ea7d3b1bce;
 demo1=03fbe5c10cb31ba0451b8ffa9c84c1af;
 MirrorHost=cdn.jsdelivr.net/gh/lingyia/OpenVPN
+apktool=https://files.010521.xyz/OpenVPN/apktool
 IPAddress=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`;
 testip=`expr substr $IPAddress 1 9`
 xuzhouip=`expr substr $IPAddress 1 10`
@@ -2128,7 +2129,7 @@ if [[ $mode == "4" ]]
 		echo 
 		cd /usr/local/ && rm -f apktool.jar
 		echo "正在下载APP源码..."
-		curl -C - -O http://${MirrorHost}/${api}/apktool.jar && chmod 0755 apktool.jar
+		curl -C - -O ${apktool}/apktool.jar && chmod 0755 apktool.jar
 		cd /usr/bin/ && rm -f apktool aapt
 		#curl -C - -O http://${MirrorHost}/${api}/apktool >/dev/null 2>&1 && chmod 0755 apktool
 		curl -C - -O http://${MirrorHost}/${api}/aapt >/dev/null 2>&1 && chmod 0755 aapt
