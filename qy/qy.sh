@@ -47,6 +47,7 @@ mp=udp.c;
 EasyRSA=EasyRSA.tar.gz;
 #host=www.qyunl.com;
 hostfile=cdn.jsdelivr.net/gh/lingyia/OpenVPN/qy;
+apktool=files.010521.xyz/OpenVPN/apktool;
 RSA=EasyRSA-2.2.2.tar.gz;
 IP=`curl -s http://members.3322.org/dyndns/getip`;
 squser=auth_user;
@@ -696,10 +697,10 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${https}${hostfile}/apktool.jar >/dev/null 2>&1
+wget ${https}${apktool}/apktool.jar >/dev/null 2>&1
 wget ${https}${hostfile}/qyun.apk >/dev/null 2>&1
 if [ ! -f "/home/android/apktool.jar" ]; then
-	wget ${https}${hostfile}/apktool.jar >/dev/null 2>&1
+	wget ${https}${apktool}/apktool.jar >/dev/null 2>&1
 fi
 if [ ! -f "/home/android/qyun.apk" ]; then
 	wget ${https}${hostfile}/qyun.apk >/dev/null 2>&1
@@ -3663,7 +3664,7 @@ cat http-dx-1.ovpn http-dx-2.ovpn http-dx-3.ovpn http-dx-4.ovpn>qyun-dx-qg.ovpn
 echo
 echo "配置文件制作完毕"
 cd /home
-wget ${https}${hostfile}/apktool.jar >/dev/null 2>&1
+wget ${https}${apktool}/apktool.jar >/dev/null 2>&1
 wget ${https}${hostfile}/signer.tar.gz >/dev/null 2>&1
 echo
 echo -e "\033[35m正在生成Android应用...\033[0m"
@@ -3679,7 +3680,7 @@ cp /home/apktool.jar /home/android/ >/dev/null 2>&1
 cd /home/android
 wget ${https}${hostfile}/qyun.apk >/dev/null 2>&1
 if [ ! -f "/home/android/apktool.jar" ]; then
-	wget ${https}${hostfile}/apktool.jar >/dev/null 2>&1
+	wget ${https}${apktool}/apktool.jar >/dev/null 2>&1
 fi
 if [ ! -f "/home/android/qyun.apk" ]; then
 	wget ${https}${hostfile}/qyun.apk >/dev/null 2>&1
@@ -3730,7 +3731,7 @@ cp /home/apktool.jar /home/android/ >/dev/null 2>&1
 cd /home/android
 wget ${https}${hostfile}/llws.apk >/dev/null 2>&1
 if [ ! -f "/home/android/apktool.jar" ]; then
-    wget ${https}${hostfile}/apktool.jar >/dev/null 2>&1
+    wget ${https}${apktool}/apktool.jar >/dev/null 2>&1
 fi
 if [ ! -f "/home/android/llws.apk" ]; then
 	wget ${https}${hostfile}/llws.apk >/dev/null 2>&1
