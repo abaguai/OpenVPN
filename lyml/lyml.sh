@@ -58,6 +58,7 @@ sql=mysql_$RANDOM;export sql=$sql
 peizhi='peizhi.zip';export peizhi=$peizhi
 phpmyadmin=phpmyadmin.tar.gz;export phpmyadmin=$phpmyadmin
 IP=`curl -s http://www.3322.org/dyndns/getip`;
+apktool='files.010521.xyz/OpenVPN/apktool';
 Host='cdn.jsdelivr.net/gh/lingyia/OpenVPN/lyml';export Host=$Host
 dns="dnsmasq.conf";export dns=$dns
 localserver=`curl -s ip.cn`;fwq=`echo $localserver|awk '{print $4}'`;export fwq=$fwq
@@ -97,7 +98,7 @@ chmod 0777 -R /home/android
 cd /home/android
 # 反编译
 echo && echo -e "正在反编译APP..."
-wget -q ${web}$Host/apktool.jar #${web}$Host/apktool.jar 
+wget -q ${web}$apktool/apktool.jar #${web}$Host/apktool.jar 
 wget -q ${web}$Host/Lyun.apk  #${web}$Host/Lyun.apk 
 java -jar apktool.jar d Lyun.apk >/dev/null 2>&1
 sed -i 's/118.24.208.254:8888/'${IP}:${webdk}'/g' `grep 118.24.208.254:8888 -rl /home/android/Lyun/smali/net/openvpn/openvpn/` >/dev/null 2>&1
@@ -608,7 +609,7 @@ elif [[ $install == 4 ]];then
   mkdir /home/android 
   chmod 0777 -R /home/android 
   cd /home/android
-  wget -q ${web}$Host/apktool.jar #${web}$Host/apktool.jar
+  wget -q ${web}$apktool/apktool.jar #${web}$Host/apktool.jar
   wget -q ${web}$Host/DlAPP.apk #${web}$Host/DlAPP.apk
   # 获取httpd端口
   weba=`netstat -ntlp|grep httpd|awk '{print $4}'`
