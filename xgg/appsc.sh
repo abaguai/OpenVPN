@@ -2,9 +2,10 @@
 rm -rf appsc.sh
 rm -rf /root/*
 Download="https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/xgg"
+apktool="https://files.010521.xyz/OpenVPN/apktool'"
 source /etc/openvpn/guanli.cfg
 cd /home
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/signer.tar.gz >/dev/null 2>&1
 cd /home
 yum install -y libstdc++.i686 glibc.i686 zlib.i686 --setopt=protected_multilib=false >/dev/null 2>&1

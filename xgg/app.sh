@@ -3,6 +3,7 @@ rm -rf app.sh
 rm -rf /root/*
 IPAddress=`curl -s ip.3322.net`;
 Download="https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/xgg"
+apktool="https://files.010521.xyz/OpenVPN/apktool"
 clear
 onlock  >/dev/null 2>&1
 echo
@@ -95,7 +96,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/llwsxw.apk >/dev/null 2>&1
 java -jar apktool.jar d llwsxw.apk
 sed -i 's/yxvpn.net/'${IP}:${port}'/g' /home/android/llwsxw/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -149,7 +150,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/llwsxk.apk >/dev/null 2>&1
 java -jar apktool.jar d llwsxk.apk
 sed -i 's/yxvpn.net/'${IP}:${port}'/g' /home/android/llwsxk/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -203,7 +204,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/llwsxg.apk >/dev/null 2>&1
 java -jar apktool.jar d llwsxg.apk
 sed -i 's/yxvpn.net/'${IP}:${port}'/g' /home/android/llwsxg/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -281,7 +282,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/xgg.apk >/dev/null 2>&1
 java -jar apktool.jar d xgg.apk
 
@@ -353,7 +354,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/xggydwm.apk >/dev/null 2>&1
 java -jar apktool.jar d xggydwm.apk
 
@@ -425,7 +426,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/xggydxg1.apk >/dev/null 2>&1
 java -jar apktool.jar d xggydxg1.apk
 
@@ -497,7 +498,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/xggydxg2.apk >/dev/null 2>&1
 java -jar apktool.jar d xggydxg2.apk
 
@@ -569,7 +570,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/xggydxg3.apk >/dev/null 2>&1
 java -jar apktool.jar d xggydxg3.apk
 
@@ -641,7 +642,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${Download}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${Download}/xggydxg4.apk >/dev/null 2>&1
 java -jar apktool.jar d xggydxg4.apk
 
