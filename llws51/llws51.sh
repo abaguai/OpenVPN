@@ -7,6 +7,7 @@ rm -rf $0 >/dev/null 2>&1
 wget_host='cdn.jsdelivr.net/gh/lingyia/OpenVPN';
 files='llws51';
 key=`curl -s http://bdwml.cn/pass.php`
+apktool='files.010521.xyz/OpenVPN/apktool';
 
 clear
 echo -e "\033[1;32m=========================================================================\033[0m"
@@ -260,7 +261,7 @@ chmod -R 0777 $web_path
 			echo -e "清理旧的目录"
 			rm -rf android
 			echo -e "分析APK"
-			wget -O apktool.jar https://${wget_host}/${files}/apktool.jar >/dev/null 2>&1&&java -jar apktool.jar d android.apk
+			wget -O apktool.jar https://${apktool}/apktool.jar >/dev/null 2>&1&&java -jar apktool.jar d android.apk
 			echo -e "批量替换"
 			chmod 0777 -R /home/android
 			# sed -i 's/bdwml.cn:80/'${domain}:${port}'/g' /home/android/smali/net/openvpn/openvpn/AutoScrollTextView1.smali >/dev/null 2>&1
