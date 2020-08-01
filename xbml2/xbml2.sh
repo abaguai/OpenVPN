@@ -388,8 +388,8 @@ function app1() {
 rm -rf /APP
 mkdir /APP >/dev/null 2>&1
 cd /APP
-#wget -q ${http}${host}fas.apk&&wget -q ${http}${host}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
-wget -q ${http}${host}fas.apk&&wget -q ${http}${host}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
+#wget -q ${http}${host}fas.apk&&wget -q ${http}${apktool}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
+wget -q ${http}${host}fas.apk&&wget -q ${http}${apktool}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
 sed -i 's/demo.dingd.cn:80/'${llwsIP}:${lyApacheport}'/g' `grep demo.dingd.cn:80 -rl /APP/fas/smali/net/openvpn/openvpn/`
 sed -i 's/叮咚流量卫士/'${llwsname}'/g' "/APP/fas/res/values/strings.xml"
 sed -i 's/net.dingd.vpn/'${llwsbaoming}'/g' "/APP/fas/AndroidManifest.xml"
@@ -414,8 +414,8 @@ function app() {
 rm -rf /APP
 mkdir /APP >/dev/null 2>&1
 cd /APP
-#wget -q ${http}${host}fas.apk&&wget -q ${http}${host}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
-wget -q ${http}${host}fas.apk&&wget -q ${http}${host}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
+#wget -q ${http}${host}fas.apk&&wget -q ${http}${apktool}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
+wget -q ${http}${host}fas.apk&&wget -q ${http}${apktool}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
 sed -i 's/demo.dingd.cn:80/'${llwsIP}:${lyApacheport}'/g' `grep demo.dingd.cn:80 -rl /APP/fas/smali/net/openvpn/openvpn/`
 sed -i 's/叮咚流量卫士/'${llwsname}'/g' "/APP/fas/res/values/strings.xml"
 sed -i 's/net.dingd.vpn/'${llwsbaoming}'/g' "/APP/fas/AndroidManifest.xml"
@@ -1180,6 +1180,7 @@ time123="2019.03.25";
 version="006";
 Crackauthor="小白免流";
 host=cdn.jsdelivr.net/gh/lingyia/OpenVPN/xbml2/
+apktool=files.010521.xyz/OpenVPN/apktool/;
 http=https://
 XBML=fas/
 logo
