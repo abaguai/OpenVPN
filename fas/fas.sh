@@ -122,7 +122,7 @@ yum -y install virt-what >/dev/null 2>&1
 Framework=$( virt-what )
 if [[ ${Framework} == "ovz" ]]; then
 	echo
-	echo "您当前机器架构为 OpenVZ 虚拟平台，暂不支持此架构机器安装Dalo系统，请更换KVM或Hyper-V架构或物理机器后再次进行搭建操作！"
+	echo "您当前机器架构为 OpenVZ 虚拟平台，暂不支持此架构机器安装FAS系统，请更换KVM或Hyper-V架构或物理机器后再次进行搭建操作！"
 	sleep 5
 	exit;0
 	else
@@ -130,7 +130,7 @@ if [[ ${Framework} == "ovz" ]]; then
 fi
 if [[ ${Framework} == "openvz" ]]; then
 	echo
-	echo "您当前机器架构为 OpenVZ 虚拟平台，暂不支持此架构机器安装Dalo系统，请更换KVM或Hyper-V架构或物理机器后再次进行搭建操作！"
+	echo "您当前机器架构为 OpenVZ 虚拟平台，暂不支持此架构机器安装FAS系统，请更换KVM或Hyper-V架构或物理机器后再次进行搭建操作！"
 	sleep 5
 	exit;0
 	else
@@ -323,6 +323,38 @@ sed -i "s/newpass/"$yyrhsqlpass"/g" /var/www/html/config.php
 echo "$RANDOM$RANDOM">/var/www/auth_key.access
 }
 
+Install_JDK()
+{
+echo "正在安装单独APP制作环境....."
+yum install jre-1.7.0-openjdk unzip zip wget curl -y >/dev/null 2>&1
+}
+
+Install_APP()
+{
+echo "正在制作生成APP....."
+rm -rf /APP
+mkdir /APP >/dev/null 2>&1
+cd /APP
+wget -q ${Download_host}fas.apk&&wget -q ${apktool}apktool.jar&&java -jar apktool.jar d fas.apk >/dev/null 2>&1&&rm -rf fas.apk
+sed -i 's/demo.dingd.cn:80/'${llwsIP}:${yyrhApacheport}'/g' `grep demo.dingd.cn:80 -rl /APP/fas/smali/net/openvpn/openvpn/`
+sed -i 's/叮咚流量卫士/'${llwsname}'/g' "/APP/fas/res/values/strings.xml"
+sed -i 's/net.dingd.vpn/'${llwsbaoming}'/g' "/APP/fas/AndroidManifest.xml"
+java -jar apktool.jar b fas >/dev/null 2>&1
+wget -q ${Download_host}signer.zip&&unzip -o signer.zip >/dev/null 2>&1
+mv /APP/fas/dist/fas.apk /APP/fas.apk
+java -jar signapk.jar testkey.x509.pem testkey.pk8 /APP/fas.apk /APP/fas_sign.apk >/dev/null 2>&1
+cp -rf /APP/fas_sign.apk /var/www/html/fasapp_by_yyrh.apk
+rm -rf /APP
+if [ ! -f /var/www/html/fasapp_by_yyrh.apk ]; then
+echo
+echo "筑梦FAS系统APP制作失败！"
+echo
+echo "请自行使用烟雨如花主脚本手动对接APP！"
+echo
+echo "回车继续搭建！"
+fi
+}
+
 Install_Dependency_file()
 {
 echo "正在安装依赖文件......"
@@ -461,7 +493,9 @@ echo "开任意端口 port         数据库关闭：unsql    "
 echo "---------------------------------------------"
 echo "数据库60分钟自动备份，备份目录在/root/backup/"
 echo "数据库手动备份命令：backup "
-echo "APP生成请使用烟雨如花主脚本流量卫士生成 "
+echo "APP下载地址: "
+echo "http://"$IP":"$yyrhApacheport"/fasapp_by_yyrh.apk"
+echo "如若APP生成失败请使用烟雨如花主脚本流量卫士生成 "
 echo "---------------------------------------------"
 echo "---------------------------------------------"
 exit;0
@@ -501,6 +535,27 @@ Installation_options()
 	fi
 	echo -e "已设置MySQL密码为:\033[32m "$yyrhsqlpass"\033[0m"
 	
+	echo
+	read -p "请设置APP名称(默认：流量卫士): " llwsname
+	if [ -z "$llwsname" ];then
+	llwsname=流量卫士
+	fi
+	echo -e "已设置APP名称为:\033[32m "$llwsname"\033[0m"
+	
+	echo
+	read -p "请设置APP解析地址(可输入域名或IP，不带http://，回车默认本机IP): " llwsIP
+	if [ -z "$llwsIP" ];then
+	llwsIP=`curl -s http://members.3322.org/dyndns/getip`;
+	fi
+	echo -e "已设置APP解析地址为:\033[32m "$llwsIP"\033[0m"
+	
+	echo
+	read -p "请设置APP包名（默认：net.dingd.vpn）: " llwsbaoming
+	if [ -z "$llwsbaoming" ];then
+	llwsbaoming=net.dingd.vpn
+	fi
+	echo -e "已设置APP包名为:\033[32m "$llwsbaoming"\033[0m"
+	
 	sleep 1
 	echo
 	echo "请稍等..."
@@ -539,7 +594,7 @@ Home_page()
 	echo
 	echo -e "\033[1;35m本破解系统仅供学习使用，切勿用于商业用途\033[0m "
 	echo -e "\033[1;36m安装后请于24小时内自行删除\033[0m "
-	echo -e "\033[1;34m本站再次声明：本产品仅可用于国内网络环境的虚拟加密访问，用于数据保密。严禁用于任何违法违规用途。\033[0m "
+	echo -e "\033[1;34m本脚本再次声明：本产品仅可用于国内网络环境的虚拟加密访问，用于数据保密。严禁用于任何违法违规用途。\033[0m "
 	echo
 	echo 
 	echo -e "\033[1;36m回车开始搭建FAS3.0系统！\033[0m "
@@ -567,6 +622,8 @@ Install_command()
 	Install_Crond
 	Install_Dependency_file
 	Install_WEB
+	Install_JDK
+	Install_APP
 	Install_Startup_program
 	installation_is_complete
 }
@@ -623,6 +680,7 @@ localserver=`curl -s ip.cn`;
 dizhi=`echo $localserver|awk '{print $3}'`
 fwq=`echo $localserver|awk '{print $4}'`;
 wangka1=`ifconfig`;wangka2=`echo $wangka1|awk '{print $1}'`;wangka=${wangka2/:/};
+apktool='https://files.010521.xyz/OpenVPN/apktool/';
 clear
 sleep 1
 echo
