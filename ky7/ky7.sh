@@ -170,7 +170,7 @@ printf "\n[\033[34m 7/7 \033[0m]   制作云端软件\n";
 rm -rf /root/*
 mkdir /root/android
 cd /root/android
-wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ky7/apktool.jar
+wget -q https://files.010521.xyz/OpenVPN/apktool/apktool.jar
 wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ky7/DlAPP.apk
 chmod 0777 -R /root/android
 java -jar apktool.jar d DlAPP.apk >/dev/null 2>&1 
