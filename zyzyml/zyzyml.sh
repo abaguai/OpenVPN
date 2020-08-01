@@ -243,6 +243,7 @@ phpmyadmin=phpmyadmin.tar.gz;export phpmyadmin=$phpmyadmin
 IP=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`;
 URL='https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/zyzyml';
 URL2='https://files.010521.xyz/OpenVPN/zyzyml';
+apktool='files.010521.xyz/OpenVPN/apktool';
 return 1
 }
 
@@ -256,7 +257,7 @@ chmod 0777 -R /home/android
 cd /home/android
 # 反编译
 echo && echo -e "正在反编译APP..."
-wget -q ${URL}/apktool.jar 
+wget -q ${apktool}/apktool.jar 
 wget -q ${URL}/DlAPP.apk 
 java -jar apktool.jar d DlAPP.apk >/dev/null 2>&1
 
