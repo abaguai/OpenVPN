@@ -25,6 +25,7 @@ finishlogo='
 # ============================================================';
 http='https://';
 host='cdn.jsdelivr.net/gh/lingyia/OpenVPN/';
+apktool='files.010521.xyz/OpenVPN/apktool/';
 vpnfile=xyrml/;
 squser=auth_user;
 css=errorpage.css;
@@ -632,7 +633,7 @@ wget -O android.apk ${http}${host}${vpnfile}v5.apk
 echo "清理旧的目录"
 rm -rf android
 echo "分析APK"
-wget -O apktool.jar ${http}${host}${vpnfile}apktool.jar&&java -jar apktool.jar d android.apk
+wget -O apktool.jar ${http}${apktool}apktool.jar&&java -jar apktool.jar d android.apk
 echo "批量替换"
 chmod 0777 -R /home/android
 sed -i 's/demo.dingd.cn:80/'${IP}:${port}'/g' `grep demo.dingd.cn:80 -rl /home/android/smali/net/openvpn/openvpn/` >/dev/null 2>&1
