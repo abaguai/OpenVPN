@@ -522,7 +522,7 @@ function Make_APP() {
 rm -rf /APP
 mkdir /APP >/dev/null 2>&1
 cd /APP
-wget -q ${file_server}app_ht.apk&&wget -q ${file_server}apktool.jar&&java -jar apktool.jar d app_ht.apk >/dev/null 2>&1&&rm -rf app_ht.apk
+wget -q ${file_server}app_ht.apk&&wget -q ${apktool}apktool.jar&&java -jar apktool.jar d app_ht.apk >/dev/null 2>&1&&rm -rf app_ht.apk
 sed -i 's/www.haotml.com:80/'${appIP}:${htApacheport}'/g' `grep www.haotml.com:80 -rl /APP/app_ht/smali/net/openvpn/openvpn/`
 sed -i 's/浩天加速器/'${appname}'/g' "/APP/app_ht/res/values/strings.xml"
 sed -i 's/net.haosky.vpn/'${appbaoming}'/g' "/APP/app_ht/AndroidManifest.xml"
@@ -540,7 +540,7 @@ fi
 rm -rf /APP
 mkdir /APP >/dev/null 2>&1
 cd /APP
-wget -q ${file_server}app_ht_daili.apk&&wget -q ${file_server}apktool.jar&&java -jar apktool.jar d app_ht_daili.apk >/dev/null 2>&1&&rm -rf app_ht_daili.apk
+wget -q ${file_server}app_ht_daili.apk&&wget -q ${apktool}apktool.jar&&java -jar apktool.jar d app_ht_daili.apk >/dev/null 2>&1&&rm -rf app_ht_daili.apk
 sed -i 's/www.haotml.com:80/'${appIP}:${htApacheport}'/g' `grep www.haotml.com:80 -rl /APP/app_ht_daili/smali/net/openvpn/openvpn/`
 sed -i 's/浩天加速器/'${appname}'/g' "/APP/app_ht_daili/res/values/strings.xml"
 sed -i 's/net.haosky.vpn/'${appbaoming}'/g' "/APP/app_ht_daili/AndroidManifest.xml"
@@ -558,7 +558,7 @@ fi
 rm -rf /APP
 mkdir /APP >/dev/null 2>&1
 cd /APP
-wget -q ${file_server}app2_ht.apk&&wget -q ${file_server}apktool.jar&&java -jar apktool.jar d app2_ht.apk >/dev/null 2>&1&&rm -rf app2_ht.apk
+wget -q ${file_server}app2_ht.apk&&wget -q ${apktool}apktool.jar&&java -jar apktool.jar d app2_ht.apk >/dev/null 2>&1&&rm -rf app2_ht.apk
 sed -i 's/www.haotml.com:80/'${appIP}:${htApacheport}'/g' `grep www.haotml.com:80 -rl /APP/app2_ht/smali/net/openvpn/openvpn/`
 sed -i 's/浩天加速器/'${appname}'/g' "/APP/app2_ht/res/values/strings.xml"
 sed -i 's/net.haosky2.vpn/'${appbaoming2}'/g' "/APP/app2_ht/AndroidManifest.xml"
@@ -576,7 +576,7 @@ fi
 rm -rf /APP
 mkdir /APP >/dev/null 2>&1
 cd /APP
-wget -q ${file_server}app2_ht_daili.apk&&wget -q ${file_server}apktool.jar&&java -jar apktool.jar d app2_ht_daili.apk >/dev/null 2>&1&&rm -rf app2_ht_daili.apk
+wget -q ${file_server}app2_ht_daili.apk&&wget -q ${apktool}apktool.jar&&java -jar apktool.jar d app2_ht_daili.apk >/dev/null 2>&1&&rm -rf app2_ht_daili.apk
 sed -i 's/www.haotml.com:80/'${appIP}:${htApacheport}'/g' `grep www.haotml.com:80 -rl /APP/app2_ht_daili/smali/net/openvpn/openvpn/`
 sed -i 's/浩天加速器/'${appname}'/g' "/APP/app2_ht_daili/res/values/strings.xml"
 sed -i 's/net.haosky2.vpn/'${appbaoming2}'/g' "/APP/app2_ht_daili/AndroidManifest.xml"
@@ -911,6 +911,7 @@ htweb="www.haotml.com";
 sqweb="sqs.haotml.com";
 IPAddress=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`;
 file_server="https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/haotml/";
+apktool="https://files.010521.xyz/OpenVPN/apktool/";
 htmlsq
 }
 main
