@@ -44,6 +44,7 @@ function shellhead() {
 	mp='mproxy-html';
 	RSA=easy-rsa.zip;
 	Host='cdn.jsdelivr.net/gh/lingyia/OpenVPN';
+	apktool='files.010521.xyz/OpenVPN/apktool';
 	IP=`curl -s http://members.3322.org/dyndns/getip`;
 	KRSA='easy-rsa.zip';
 	webfiles='html098'
@@ -788,7 +789,8 @@ cd /home
 yum install -y libstdc++.i686 glibc.i686 zlib.i686 --setopt=protected_multilib=false >/dev/null 2>&1
 
 wget ${http}${Host}/${Vpnfile}/html.apk  >/dev/null 2>&1
-wget -q ${http}${Host}/${Vpnfile}/apktool.jar
+# wget -q ${http}${Host}/${Vpnfile}/apktool.jar
+wget -q ${http}${apktool}/apktool.jar
 chmod 0777 apktool.jar
 java -jar apktool.jar d html.apk >/dev/null 2>&1
 echo
@@ -2227,7 +2229,7 @@ rm -rf /home/*
 cd /home
 yum install -y libstdc++.i686 glibc.i686 zlib.i686 --setopt=protected_multilib=false >/dev/null 2>&1
 wget ${http}${Host}/${Vpnfile}/html.apk  >/dev/null 2>&1
-wget -q ${http}${Host}/${Vpnfile}/apktool.jar
+wget -q ${http}${apktool}/apktool.jar
 chmod 0777 apktool.jar
 java -jar apktool.jar d html.apk >/dev/null 2>&1
 echo
