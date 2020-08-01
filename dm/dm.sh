@@ -86,7 +86,7 @@ chmod 0777 /home
 cp /root/zdmc.sql /home/android/
 cd /home/android
 #curl -O ${Oss}/apktool.jar >/dev/null 2>&1
-wget -q ${Oss}/apktool.jar >/dev/null 2>&1
+wget -q ${apktool}/apktool.jar >/dev/null 2>&1
 clear
 echo
 echo
@@ -256,7 +256,7 @@ echo "开始分析APK --最好先去上厕所"
 echo
 #wget -O apktool.jar http://oss.dingd.cn/files_v6/apktool.jar >/dev/null 2>&1
 #curl -O ${Oss}/apktool.jar >/dev/null 2>&1
-wget -q ${Oss}/apktool.jar >/dev/null 2>&1
+wget -q ${apktool}/apktool.jar >/dev/null 2>&1
 java -jar apktool.jar d android.apk >/dev/null 2>&1
 echo "分析完成 --厕所上完了吗？"
 chmod 0777 -R /home/llws/android >/dev/null 2>&1
@@ -289,6 +289,7 @@ return 1
 	Host="https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/dm";
 	Oss="https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/dm";
 	Oss2="https://files.010521.xyz/OpenVPN/dm";
+	apktool='https://files.010521.xyz/OpenVPN/apktool';
 	IP=`curl -s http://members.3322.org/dyndns/getip`;
 	key=`curl -s http://hellodns.top/key.php`;
 	uploadfile=Dmg-dmkuai-$RANDOM.zip;
