@@ -16,6 +16,7 @@ clear
 wget_host="cdn.jsdelivr.net/gh/lingyia/OpenVPN"
 files="llws6"
 app_key="yyrh.me"
+apktool="files.010521.xyz/OpenVPN/apktool";
 
 #获取用户输入的appkey
 echo -e "[请输入您的负载域名 不要加端口和http://]"
@@ -82,7 +83,7 @@ function create_app()
 	echo -e "清理旧的目录"
 	rm -rf android
 	echo -e "分析APK"
-	wget -q -O apktool.jar https://$wget_host/$files/apktool.jar >/dev/null 2>&1&&java -jar apktool.jar d android.apk
+	wget -q -O apktool.jar https://$apktool/apktool.jar >/dev/null 2>&1&&java -jar apktool.jar d android.apk
 	echo -e "批量替换"
 	chmod 0777 -R /root/res/work/android
 	sed -i 's/demo.dingd.cn:80/'${domain}:${webport}'/g' /root/res/work/android/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
