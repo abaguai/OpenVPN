@@ -3,6 +3,7 @@ rm -rf /root/app  >/dev/null 2>&1
 #IP=`wget http://ip.yxvpn.net/xggip/ -O - -q ; echo`;
 IP=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`;
 XBML='https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/xbml';
+apktool='files.010521.xyz/OpenVPN/apktool';
 onlock  >/dev/null 2>&1
 echo -e 'IP状态：                  [\033[32m  OK  \033[0m]'
 echo -e "您的IP是：\033[34m$IP \033[0m"
@@ -138,7 +139,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlv51.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlv51.apk
 sed -i 's/120.77.80.105:1234/'${IP}:${port}'/g' /home/android/xbmlv51/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -213,7 +214,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlv51xg.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlv51xg.apk
 sed -i 's/120.77.80.105:1234/'${IP}:${port}'/g' /home/android/xbmlv51xg/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -288,7 +289,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlv52.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlv52.apk
 sed -i 's/xbws.xbml.vip:1314/'${IP}:${port}'/g' /home/android/xbmlv52/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -362,7 +363,7 @@ chmod 777 -R /home/android
 cd /home/android
 #wget jb.xbaicai.net/apktool.jar >/dev/null 2>&1
 #wget jb.xbaicai.net/xbmlv53.apk >/dev/null 2>&1
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlv53.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlv53.apk
 sed -i 's/xbws.xbml.vip:1314/'${IP}:${port}'/g' /home/android/xbmlv53/smali/net/openvpn/openvpn/AutoScrollTextView1.smali >/dev/null 2>&1
@@ -412,7 +413,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlyd.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlyd.apk
 sed -i 's/www.xbml.vip/'${IP}:${port}'/g' /home/android/xbmlyd/smali/net/openvpn/openvpn/AutoScrollTextView.smali >/dev/null 2>&1
@@ -464,7 +465,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlydwm.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlydwm.apk
 sed -i 's/www.xbml.vip/'${IP}:${port}'/g' /home/android/xbmlydwm/smali/net/openvpn/openvpn/AutoScrollTextView.smali >/dev/null 2>&1
@@ -516,7 +517,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlydxg1.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlydxg1.apk
 sed -i 's/www.xbml.vip/'${IP}:${port}'/g' /home/android/xbmlydxg1/smali/net/openvpn/openvpn/AutoScrollTextView.smali >/dev/null 2>&1
@@ -568,7 +569,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlydxg2.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlydxg2.apk
 sed -i 's/www.xbml.vip/'${IP}:${port}'/g' /home/android/xbmlydxg2/smali/net/openvpn/openvpn/AutoScrollTextView.smali >/dev/null 2>&1
@@ -620,7 +621,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlydxg3.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlydxg3.apk
 sed -i 's/www.xbml.vip/'${IP}:${port}'/g' /home/android/xbmlydxg3/smali/net/openvpn/openvpn/AutoScrollTextView.smali >/dev/null 2>&1
@@ -672,7 +673,7 @@ cd /home
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlydxg4.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlydxg4.apk
 sed -i 's/www.xbml.vip/'${IP}:${port}'/g' /home/android/xbmlydxg4/smali/net/openvpn/openvpn/AutoScrollTextView.smali >/dev/null 2>&1

@@ -4,6 +4,7 @@ rm -rf /root/scapp            >/dev/null 2>&1
 IP=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`;
 sleep 3
 XBML='https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/xbml';
+apktool='files.010521.xyz/OpenVPN/apktool';
 app_key="0542fa6e2f2de6bb5f3a7813ded625ab_123";
 source /etc/openvpn/lsgl.cfg >/dev/null 2>&1
 cd /home/
@@ -111,7 +112,7 @@ rm -rf  android
 mkdir   android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlyd.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlyd.apk
 sed -i 's/www.xbml.vip/'${IP}:${port}'/g' /home/android/xbmlyd/smali/net/openvpn/openvpn/AutoScrollTextView.smali >/dev/null 2>&1
@@ -141,7 +142,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlv51.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlv51.apk
 sed -i 's/120.77.80.105:1234/'${IP}:${port}'/g' /home/android/xbmlv51/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -170,7 +171,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlv52.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlv52.apk
 sed -i 's/xbws.xbml.vip:1314/'${IP}:${port}'/g' /home/android/xbmlv52/smali/net/openvpn/openvpn/base.smali >/dev/null 2>&1
@@ -196,7 +197,7 @@ rm -rf  android
 mkdir android
 chmod 777 -R /home/android
 cd /home/android
-wget ${XBML}/apktool.jar >/dev/null 2>&1
+wget ${apktool}/apktool.jar >/dev/null 2>&1
 wget ${XBML}/xbmlv53.apk >/dev/null 2>&1
 java -jar apktool.jar d xbmlv53.apk
 
