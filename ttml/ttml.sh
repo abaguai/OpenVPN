@@ -2539,7 +2539,7 @@ mkdir android >/dev/null 2>&1
 chmod 777 /home/android
 cd /home/android
 echo;echo -e "\033[1;35m正在开始编译APP....\033[0m"
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1 
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1 
 curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/h.apk >/dev/null 2>&1
 java -jar apktool.jar d h.apk >/dev/null 2>&1
 sed -i "s/127.0.0.1/${IPAddress}:${lkdk}/g" /home/android/h/smali/net/openvpn/openvpn/AutoScrollTextView.smali
@@ -2572,7 +2572,7 @@ mkdir android >/dev/null 2>&1
 chmod 777 /home/android
 cd /home/android
 echo;echo -e "\033[1;35m正在开始编译APP....\033[0m"
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1
 curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/h1.apk >/dev/null 2>&1 
 java -jar apktool.jar d h1.apk >/dev/null 2>&1
 sed -i "s/127.0.0.1/${IPAddress}:${lkdk}/g" '/home/android/h1/smali/com/mayor/prg/mst$2.smali'
@@ -2605,7 +2605,7 @@ cd /home
 mkdir android
 chmod 777 /home/android
 cd /home/android
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1  
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1  
 curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/llws5.1/llws5.1.apk >/dev/null 2>&1  
 mv /home/android/llws5.1.apk /home/android/llws.apk
 echo -e "\033[1;35m正在开始编译APP....\033[0m"
@@ -3362,7 +3362,7 @@ mkdir android
 chmod 777 /home/android
 cd /home/android
 echo -e "\033[1;35m正在开始下载编译工具....\033[0m"
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1  
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1  
 if [[ $anzhuang == "1" ]] 
 then
 echo -e "\033[1;31m正在下载普通注册APP版...\033[0m"
@@ -3504,7 +3504,7 @@ mkdir android
 chmod 777 /home/android
 cd /home/android
 echo -e "\033[1;35m正在开始下载编译工具....\033[0m"
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1  
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1  
 echo -e "\033[1;31m正在下载流量卫士5.0APP版...\033[0m"
 curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/llws5/ll.apk >/dev/null 2>&1  
 mv /home/android/ll.apk /home/android/llws.apk
@@ -3828,7 +3828,7 @@ rm -rf /var/www/html/appdb.zip
 cd /home;mkdir android 
 chmod 777 /home/android;cd /home/android
 echo;echo -e "\033[1;35m正在开始编译APP....\033[0m"
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1 
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1 
 curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/h.apk >/dev/null 2>&1
 java -jar apktool.jar d h.apk >/dev/null 2>&1
 sed -i "s/127.0.0.1/${fuqIPAddress}:${lkdk}/g" /home/android/h/smali/net/openvpn/openvpn/AutoScrollTextView.smali
@@ -3859,7 +3859,7 @@ rm -rf /home/android
 cd /home;mkdir android 
 chmod 777 /home/android;cd /home/android
 echo;echo -e "\033[1;35m正在开始编译APP....\033[0m"
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1
 curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/h1.apk >/dev/null 2>&1 
 java -jar apktool.jar d h1.apk >/dev/null 2>&1
 sed -i "s/127.0.0.1/${fuqIPAddress}:${lkdk}/g" '/home/android/h1/smali/com/mayor/prg/mst$2.smali'
@@ -3953,7 +3953,7 @@ echo
 cd /home;mkdir android
 chmod 777 /home/android;cd /home/android
 echo;echo -e "\033[35m正在开始编译APP....\033[0m"
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1  
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1  
 echo
 if [[ $llwsxz == "1" ]] 
 then
@@ -4034,7 +4034,7 @@ rm -rf /var/www/html/流量卫士.apk
 cd /home;mkdir android
 chmod 777 /home/android
 cd /home/android
-curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/apktool.jar >/dev/null 2>&1  
+curl -O https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1  
 curl -O https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/ttmll/ll.apk >/dev/null 2>&1  
 mv /home/android/ll.apk /home/android/llws.apk
 echo -e "\033[1;35m正在开始编译APP....\033[0m"
