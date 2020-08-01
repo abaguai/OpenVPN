@@ -62,6 +62,7 @@ sql=mysql_$RANDOM;export sql=$sql
 peizhi='peizhi.zip';export peizhi=$peizhi
 phpmyadmin=phpmyadmin.tar.gz;export phpmyadmin=$phpmyadmin
 IP=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`;
+apktool='files.010521.xyz/OpenVPN/apktool';
 Host='cdn.jsdelivr.net/gh/lingyia/OpenVPN/ky6';export Host=$Host
 # Ksq1=`curl -s http://kyun.kuaiyum.com:8888/Check/api.php?act=cx\&ip=$IP`;
 # Ksq2=`curl -s http://kyun.kuaiyum.com:8888/Check/api.php?act=hmd\&ip=$IP`;
@@ -102,7 +103,7 @@ chmod 0777 -R /home/android
 cd /home/android
 # 反编译
 echo && echo -e "正在反编译APP..."
-wget -q ${web}$Host/apktool.jar 
+wget -q ${apktool}$Host/apktool.jar 
 wget -q ${web}$Host/Kyun.apk 
 java -jar apktool.jar d Kyun.apk >/dev/null 2>&1
 
