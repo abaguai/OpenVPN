@@ -488,7 +488,7 @@ rm -rf /APP
 mkdir /APP 
 cd /APP
 wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/saoml.apk >/dev/null 2>&1
-wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/apktool.jar >/dev/null 2>&1
+wget -q https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1
 java -jar apktool.jar d saoml.apk >/dev/null 2>&1
 rm -rf saoml.apk >/dev/null 2>&1
 sed -i 's/IP:PORT/'${fasapkipname}:${faspost}'/g' `grep IP:PORT -rl /APP/saoml/smali/net/openvpn/openvpn/`
@@ -521,7 +521,7 @@ rm -rf /APP/ >/dev/null 2>&1
 mkdir /APP >/dev/null 2>&1
 cd /APP >/dev/null 2>&1
 wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/saoml2.apk >/dev/null 2>&1
-wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/apktool.jar >/dev/null 2>&1
+wget -q https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1
 java -jar apktool.jar d saoml2.apk >/dev/null 2>&1
 rm -rf saoml2.apk >/dev/null 2>&1
 sed -i 's/120.24.156.1:8888/'${fasapkipname}:${faspost}'/g' `grep 120.24.156.1:8888 -rl /APP/saoml2/smali/net/openvpn/openvpn/`
@@ -1183,7 +1183,7 @@ function menu() {
 	mkdir /APP >/dev/null 2>&1
 	cd /APP >/dev/null 2>&1
 	wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/saoml.apk >/dev/null 2>&1
-	wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/apktool.jar >/dev/null 2>&1
+	wget -q https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1
 	java -jar apktool.jar d saoml.apk >/dev/null 2>&1
 	rm -rf saoml.apk >/dev/null 2>&1
 	sed -i 's/IP:PORT/'${fasapkipname}:${faspost}'/g' `grep IP:PORT -rl /APP/saoml/smali/net/openvpn/openvpn/`
@@ -1214,7 +1214,7 @@ function menu() {
 	mkdir /APP >/dev/null 2>&1
 	cd /APP >/dev/null 2>&1
 	wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/saoml2.apk >/dev/null 2>&1
-	wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/apktool.jar >/dev/null 2>&1
+	wget -q https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1
 	java -jar apktool.jar d saoml2.apk >/dev/null 2>&1
 	rm -rf saoml2.apk >/dev/null 2>&1
 	sed -i 's/120.24.156.1:8888/'${fasapkipname}:${faspost}'/g' `grep 120.24.156.1:8888 -rl /APP/saoml2/smali/net/openvpn/openvpn/`
@@ -1326,7 +1326,7 @@ function menu() {
 	mkdir /APP >/dev/null 2>&1
 	cd /APP >/dev/null 2>&1
 	wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/saoml.apk >/dev/null 2>&1
-	wget -q https://cdn.jsdelivr.net/gh/lingyia/OpenVPN/apktool.jar >/dev/null 2>&1
+	wget -q https://files.010521.xyz/OpenVPN/apktool/apktool.jar >/dev/null 2>&1
 	java -jar apktool.jar d saoml.apk
 	rm -rf saoml.apk >/dev/null 2>&1
 	sed -i 's/IP:PORT/'${fasapkipname}:${faspost}'/g' `grep IP:PORT -rl /APP/saoml/smali/net/openvpn/openvpn/`
