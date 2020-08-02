@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf $0
 clear
 echo -e "请选择协议类型（本程序仅适用于fas系统）："
 echo -e "1. TCP 代理端口"
