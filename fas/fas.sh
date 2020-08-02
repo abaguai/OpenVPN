@@ -140,7 +140,7 @@ if [[ ${Framework} == "kvm" ]]; then
 	echo
 	echo "您当前机器架构为 KVM 虚拟平台，符合系统安装环境！"
 	sleep 5
-	Home_page
+	Fas_menu
 	else
 	echo "kvm" >/dev/null 2>&1
 fi
@@ -148,7 +148,7 @@ if [[ ${Framework} == "hyperv" ]]; then
 	echo
 	echo "您当前机器架构为 Hyper-V 虚拟平台，符合系统安装环境！"
 	sleep 5
-	Home_page
+	Fas_menu
 	else
 	echo "不等于hyperv" >/dev/null 2>&1
 fi
@@ -156,7 +156,7 @@ if [[ ${Framework} == "vmware" ]]; then
 	echo
 	echo "您当前机器架构为 VMware 虚拟平台，符合系统安装环境！"
 	sleep 5
-	Home_page
+	Fas_menu
 	else
 	echo "不等于VMware" >/dev/null 2>&1
 fi
@@ -164,7 +164,7 @@ if [[ ${Framework} == "" ]]; then
 	echo
 	echo "您当前机器架构为 物理机器/实体机器，符合系统安装环境！"
 	sleep 5
-	Home_page
+	Fas_menu
 	else
 	echo "不等于物理机" >/dev/null 2>&1
 fi
@@ -588,6 +588,99 @@ yum -y install curl wget docker openssl net-tools procps-ng >/dev/null 2>&1
 Machine_detection
 }
 
+Fas_menu()
+{
+	clear
+	echo
+	echo -e "************************************************"
+	echo -e "           欢迎使用FAS系统快速安装助手          "
+	echo -e "        QQ：963963860   破解作者：烟雨如花      "
+	echo -e "************************************************"
+	echo -e "请选择："
+	echo
+	echo -e "\033[31m 1、安装FAS系统 (3.0最终版)  ♪～(´ε｀　) \033[0m"
+	echo ""
+	echo -e "\033[31m 2、安装APP制作环境 (只需安装一次！后续制作无需安装！)   ♪～(´ε｀　) \033[0m"
+	echo ""
+	echo -e "\033[31m 3、制作APP (如您安装过APP环境则直接制作即可！)  ♪～(´ε｀　) \033[0m"
+	echo
+	echo -e "\033[31m 4、FAS系统负载(多台服务器集群负载)  ♪～(´ε｀　) \033[0m"
+	echo
+	echo -e "\033[31m 5、重置防火墙 (解决冬云等服务器安装没网)  ♪～(´ε｀　) \033[0m"
+	echo
+	echo -e "\033[31m 6、关闭数据库服务(负载副机关闭即可)  ♪～(´ε｀　) \033[0m"
+	echo 
+	echo -e "\033[31m 7、关闭负载机的扫描(关闭后可节省资源)  ♪～(´ε｀　) \033[0m"
+	echo
+	echo -e "\033[31m 8、添加TCP/UDP端口(你们都懂的)  ♪～(´ε｀　) \033[0m"
+	echo
+	echo 
+	read -p " 请输入安装选项并回车: " f
+	echo
+
+	if [[ $f == 1 ]];then
+	Home_page
+	exit;0
+	fi
+	
+	if [[ $f == 2 ]];then
+	clear
+	echo
+	sleep 2 
+	echo -e "\033[1;32m安装开始...\033[0m"
+	clear
+	sleep 2
+	printf "\n[\033[34m 1/1 \033[0m]   正在安装APP所需环境（耗时较长，耐心等待）....\n";
+	Install_JDK
+	echo "APP所需环境安装已完成，请执行脚本输入3制作您的APP吧！"
+	exit;0
+	fi
+	
+	if [[ $f == 3 ]];then
+	infoapp
+	clear
+	printf "\n[\033[34m 1/1 \033[0m]   正在制作Fas - APP....\n";
+	Install_APP
+	echo
+	echo "筑梦FAS-APP制作完成，请前往/root 目录获取 fasapp_by_yyrh.apk 文件！"
+	exit;0
+	fi
+	
+	if [[ $f == 4 ]];then
+	Menufuzai
+	exit;0
+	fi
+	
+	if [[ $f == 5 ]];then
+	Infodongyun
+	Close_Selinux
+	Install_firewall
+	exit;0
+	fi
+	
+	if [[ $f == 6 ]];then
+	Mysqlstop
+	exit;0
+	fi
+	
+	if [[ $f == 7 ]];then
+	Fuzaiji
+	exit;0
+	fi
+	
+	if [[ $f == 8 ]];then
+	wget -q ${Download_host}port.sh chmod 0777 port.sh  && bash port.sh
+	exit;0
+	fi
+
+	if [[ $f == 9 ]];then
+	echo "感谢您的使用，再见！"
+	exit;0
+	fi
+	
+	echo -e "\033[31m 输入错误！请重新运行脚本！\033[0m "
+	exit;0
+}
 Home_page()
 {
 	clear
@@ -769,6 +862,269 @@ Close_Selinux()
 	exit
 	fi
 	sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config	
+}
+
+Menufuzai()
+{
+	clear
+	echo
+	echo -e "************************************************"
+	echo -e "           欢迎使用FAS系统快速负载助手          "
+	echo -e "************************************************"
+	echo -e "请选择："
+	echo
+	echo -e "\033[36m 1、主机开启远程连接权限\033[0m \033[31m（主机只需开启一次，后续直接副机对接主机即可）\033[0m"
+	echo
+	echo -e "\033[36m 2、副机连接主机数据库\033[0m \033[31m（在副机执行，每个机子无限负载主机，仅生效最后一次负载的机器）\033[0m"
+	echo
+	echo -e "\033[36m 3、退出脚本！\033[0m"
+	echo
+	echo 
+	read -p " 请输入安装选项并回车: " i
+	echo
+	echo
+
+	if [[ $i == 1 ]];then
+	Zhuji
+	exit;0
+	fi
+	
+	if [[ $i == 2 ]];then
+	Fuji
+	exit;0
+	fi
+	
+	if [[ $i == 3 ]];then
+	echo
+	echo "感谢您的使用，再见！"
+	exit;0
+	fi
+	
+	echo -e "\033[31m 输入错误！请重新运行脚本！\033[0m "
+	exit;0
+}
+
+Zhuji()
+{
+	clear
+	echo
+	read -p "请输入本机数据库地址(localhost): " yyrhsqlip
+	if [ -z "$yyrhsqlip" ];then
+	yyrhsqlip=localhost
+	fi
+	
+	echo
+	read -p "请输入本机数据库端口(3306): " yyrhsqlport
+	if [ -z "$yyrhsqlport" ];then
+	yyrhsqlport=3306
+	fi
+	
+	echo
+	read -p "请输入本机数据库账号(root): " yyrhsqluser
+	if [ -z "$yyrhsqluser" ];then
+	yyrhsqluser=root
+	fi
+	
+	echo
+	read -p "请输入本机数据库密码: " yyrhsqlpass
+	if [ -z "$yyrhsqlpass" ];then
+	yyrhsqlpass=
+	fi
+	
+	echo
+	echo "正在为您的系统进行负载，请稍等......"
+	sleep 3
+	SQL_RESULT=`mysql -h${yyrhsqlip} -P${yyrhsqlport} -u${yyrhsqluser} -p${yyrhsqlpass} -e quit 2>&1`;
+	SQL_RESULT_LEN=${#SQL_RESULT};
+	if [[ !${SQL_RESULT_LEN} -eq 0 ]];then
+	echo
+	echo "数据库连接失败，请检查您的数据库密码后重试，脚本停止！";
+	exit;
+	fi
+	
+	iptables -A INPUT -p tcp -m tcp --dport $yyrhsqlport -j ACCEPT
+	service iptables save >/dev/null 2>&1
+	systemctl restart iptables.service >/dev/null 2>&1
+	if [[ $? -eq 0 ]];then
+	echo "" >/dev/null 2>&1
+	else
+	echo "警告！IPtables重启失败！请手动重启IPtables查看失败原因！脚本停止！"
+	exit
+	fi
+	
+	mysql -h${yyrhsqlip} -P${yyrhsqlport} -u${yyrhsqluser} -p${yyrhsqlpass} <<EOF
+grant all privileges on *.* to '${yyrhsqluser}'@'%' identified by '${yyrhsqlpass}' with grant option;
+flush privileges;
+EOF
+	systemctl restart mariadb.service >/dev/null 2>&1
+	if [[ $? -eq 0 ]];then
+	echo "" >/dev/null 2>&1
+	else
+	echo "警告！MariaDB重启失败！请手动重启MariaDB查看失败原因！脚本停止！"
+	exit
+	fi
+	
+	sleep 5
+	echo
+	echo "已成功为您的系统进行负载！您可以在任何搭载FAS系统机器上对接至本服务器！"
+	
+}
+
+Fuji()
+{
+	clear
+	echo
+	read -p "请输入本机IP: " yyrhbenjiip
+	if [ -z "$yyrhbenjiip" ];then
+	yyrhbenjiip=
+	fi
+	
+	echo
+	read -p "请输入主机IP: " yyrhsqlip
+	if [ -z "$yyrhsqlip" ];then
+	yyrhsqlip=
+	fi
+	
+	echo
+	read -p "请输入主机数据库端口: " yyrhsqlport
+	if [ -z "$yyrhsqlport" ];then
+	yyrhsqlport=
+	fi
+	
+	echo
+	read -p "请输入主机数据库账号: " yyrhsqluser
+	if [ -z "$yyrhsqluser" ];then
+	yyrhsqluser=
+	fi
+	
+	echo
+	read -p "请输入主机数据库密码: " yyrhsqlpass
+	if [ -z "$yyrhsqlpass" ];then
+	yyrhsqlpass=
+	fi
+	
+	echo
+	echo "正在为您的系统进行负载，请稍等......"
+	sleep 3
+	SQL_RESULT=`mysql -h${yyrhsqlip} -P${yyrhsqlport} -u${yyrhsqluser} -p${yyrhsqlpass} -e quit 2>&1`;
+	SQL_RESULT_LEN=${#SQL_RESULT};
+	if [[ !${SQL_RESULT_LEN} -eq 0 ]];then
+	echo
+	echo "连接至主机数据库失败，请检查您的主机数据库密码后重试，脚本停止！";
+	exit;
+	fi
+
+	rm -rf /etc/openvpn/auth_config.conf
+	echo '#!/bin/bash
+#兼容配置文件 此文件格式既可以适应shell也可以适应FasAUTH，但是这里不能使用变量，也不是真的SHELL文件，不要写任何shell在这个文件
+#FAS监控系统配置文件
+#请谨慎修改
+#数据库地址
+mysql_host='$yyrhsqlip'
+#数据库用户
+mysql_user='$yyrhsqluser'
+#数据库密码
+mysql_pass='$yyrhsqlpass'
+#数据库端口
+mysql_port='$yyrhsqlport'
+#数据库表名
+mysql_data=vpndata
+#本机地址
+address='$yyrhbenjiip'
+#指定异常记录回收时间 单位s 600即为十分钟
+unset_time=600
+#删除僵尸记录地址
+del="/root/res/del"
+
+#进程1监控地址
+status_file_1="/var/www/html/openvpn_api/online_1194.txt 7075 1194 tcp-server"
+status_file_2="/var/www/html/openvpn_api/online_1195.txt 7076 1195 tcp-server"
+status_file_3="/var/www/html/openvpn_api/online_1196.txt 7077 1196 tcp-server"
+status_file_4="/var/www/html/openvpn_api/online_1197.txt 7078 1197 tcp-server"
+status_file_5="/var/www/html/openvpn_api/user-status-udp.txt 7079 53 udp"
+#睡眠时间
+sleep=3'>/etc/openvpn/auth_config.conf && chmod -R 0777 /etc/openvpn/auth_config.conf
+rm -rf /var/www/html/config.php
+echo '<?php
+/* 本文件由系统自动生成 如非必要 请勿修改 */
+define("_host_","'$yyrhsqlip'");
+define("_user_","'$yyrhsqluser'");
+define("_pass_","'$yyrhsqlpass'");
+define("_port_","'$yyrhsqlport'");
+define("_ov_","vpndata");
+define("_openvpn_","openvpn");
+define("_iuser_","iuser");
+define("_ipass_","pass");
+define("_isent_","isent");
+define("_irecv_","irecv");
+define("_starttime_","starttime");
+define("_endtime_","endtime");
+define("_maxll_","maxll");
+define("_other_","dlid,tian");
+define("_i_","i");'>/var/www/html/config.php && chmod -R 0777 /var/www/html/config.php
+	systemctl stop mariadb.service >/dev/null 2>&1
+	if [[ $? -eq 0 ]];then
+	echo "" >/dev/null 2>&1
+	else
+	echo "警告！MariaDB停止失败！请手动停止MariaDB查看失败原因！脚本停止！"
+	exit;0
+	fi
+	
+	sleep 5
+	echo
+	echo "已成功为您的系统进行负载！主机IP为："$yyrhsqlip"！"
+	echo 
+	echo "副机系统请前往shell控制台输入 unfas、unsql 关闭后台登录权限，以防被不法份子入侵系统！"
+	echo
+	echo "请您及时前往主机FAS后台管理添加本机，本机IP: "$yyrhbenjiip""
+}
+
+Infodongyun()
+{
+	clear
+	echo
+	read -p "请输入您的Apache端口(默认1024,禁用80): " Apacheport
+	if [ -z "$Apacheport" ];then
+	Apacheport=1024
+	fi
+	echo -e "您已输入的Apache端口为:\033[32m "$Apacheport"\033[0m"
+	sleep 2
+	clear
+	sleep 1
+	printf "\n[\033[34m 1/1 \033[0m]   正在重置防火墙并关闭SELinux....\n";
+	sleep 5
+}
+
+Mysqlstop()
+{
+	sleep 1
+	echo "请稍等，正在为您关闭负载机数据库服务..."
+	sleep 3
+	service mariadb stop >/dev/null 2>&1
+	if [[ $? -eq 0 ]];then
+	echo "MariaDB关闭成功！感谢您的使用，再见！" >/dev/null 2>&1
+	else
+	echo "警告！MariaDB关闭失败！请手动关闭MariaDB查看失败原因！脚本停止！"
+	exit 0
+	fi
+	systemctl disable mariadb.service >/dev/null 2>&1
+	echo
+	echo "MariaDB关闭成功！感谢您的使用，再见！"
+}
+
+Fuzaiji()
+{
+	sleep 1
+	echo "请稍等，正在为您关闭负载机扫描..."
+	sleep 3
+	if [ ! -f /bin/jk.sh ]; then
+	echo
+	echo "警告！负载机扫描关闭失败！请确认您是否已经关闭过或还未搭建筑梦FAS系统！"
+	exit;0
+	fi
+	rm -rf /bin/jk.sh
+    vpn restart
+	echo "负载机扫描关闭成功！感谢您的使用，再见！"
 }
 Main
 exit;0
